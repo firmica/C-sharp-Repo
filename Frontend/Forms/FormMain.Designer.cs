@@ -42,16 +42,16 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCreateNewEntry = new System.Windows.Forms.Button();
             this.dgvEntries = new System.Windows.Forms.DataGridView();
+            this.btn_DeleteEntry = new System.Windows.Forms.Button();
+            this.btnEditEntry = new System.Windows.Forms.Button();
             this.entryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupIdInEntries = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EntryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EntryLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntryLocation = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_DeleteEntry = new System.Windows.Forms.Button();
-            this.btnEditEntry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroups)).BeginInit();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).BeginInit();
@@ -216,6 +216,28 @@
             this.dgvEntries.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntries_CellClick);
             this.dgvEntries.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntries_CellContentClick_1);
             // 
+            // btn_DeleteEntry
+            // 
+            this.btn_DeleteEntry.Enabled = false;
+            this.btn_DeleteEntry.Location = new System.Drawing.Point(299, 25);
+            this.btn_DeleteEntry.Name = "btn_DeleteEntry";
+            this.btn_DeleteEntry.Size = new System.Drawing.Size(64, 42);
+            this.btn_DeleteEntry.TabIndex = 8;
+            this.btn_DeleteEntry.Text = "Delete Entry";
+            this.btn_DeleteEntry.UseVisualStyleBackColor = true;
+            this.btn_DeleteEntry.Click += new System.EventHandler(this.btn_DeleteEntry_Click_1);
+            // 
+            // btnEditEntry
+            // 
+            this.btnEditEntry.Enabled = false;
+            this.btnEditEntry.Location = new System.Drawing.Point(369, 25);
+            this.btnEditEntry.Name = "btnEditEntry";
+            this.btnEditEntry.Size = new System.Drawing.Size(64, 42);
+            this.btnEditEntry.TabIndex = 9;
+            this.btnEditEntry.Text = "Edit\r\nEntry";
+            this.btnEditEntry.UseVisualStyleBackColor = true;
+            this.btnEditEntry.Click += new System.EventHandler(this.btnEditEntry_Click_1);
+            // 
             // entryId
             // 
             this.entryId.HeaderText = "entryId";
@@ -244,6 +266,7 @@
             this.EntryLocation.Name = "EntryLocation";
             this.EntryLocation.ReadOnly = true;
             this.EntryLocation.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.EntryLocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Username
             // 
@@ -275,28 +298,6 @@
             this.Note.Name = "Note";
             this.Note.ReadOnly = true;
             this.Note.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // btn_DeleteEntry
-            // 
-            this.btn_DeleteEntry.Enabled = false;
-            this.btn_DeleteEntry.Location = new System.Drawing.Point(299, 25);
-            this.btn_DeleteEntry.Name = "btn_DeleteEntry";
-            this.btn_DeleteEntry.Size = new System.Drawing.Size(64, 42);
-            this.btn_DeleteEntry.TabIndex = 8;
-            this.btn_DeleteEntry.Text = "Delete Entry";
-            this.btn_DeleteEntry.UseVisualStyleBackColor = true;
-            this.btn_DeleteEntry.Click += new System.EventHandler(this.btn_DeleteEntry_Click_1);
-            // 
-            // btnEditEntry
-            // 
-            this.btnEditEntry.Enabled = false;
-            this.btnEditEntry.Location = new System.Drawing.Point(369, 25);
-            this.btnEditEntry.Name = "btnEditEntry";
-            this.btnEditEntry.Size = new System.Drawing.Size(64, 42);
-            this.btnEditEntry.TabIndex = 9;
-            this.btnEditEntry.Text = "Edit\r\nEntry";
-            this.btnEditEntry.UseVisualStyleBackColor = true;
-            this.btnEditEntry.Click += new System.EventHandler(this.btnEditEntry_Click_1);
             // 
             // FormMain
             // 
@@ -350,14 +351,14 @@
         private System.Windows.Forms.DataGridView dgvEntries;
         private System.Windows.Forms.Button btn_DeleteEntry;
         private System.Windows.Forms.Button btnEditEntry;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupIdInEntries;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EntryLocation;
+        private System.Windows.Forms.DataGridViewLinkColumn EntryLocation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewButtonColumn Action;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

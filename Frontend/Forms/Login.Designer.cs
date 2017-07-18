@@ -65,18 +65,18 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(46, 101);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 5;
-            this.lblUsername.Text = "Username";
+            this.lblUsername.Text = "Username:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(48, 127);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 6;
-            this.lblPassword.Text = "Password";
+            this.lblPassword.Text = "Password:";
             // 
             // Login
             // 

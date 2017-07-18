@@ -16,9 +16,10 @@ namespace Backend.Components.Entry
         {
             int groupIdParam = Int32.Parse(arguments[0].ToString());
             string nameParam = (string)arguments[1];
-            string usernameParam = (string) arguments[2];
-            string passwordParam = (string)arguments[3];  
-            string noteParam = (string)arguments[4];
+            string locationParam = (string)arguments[2];
+            string usernameParam = (string) arguments[3];
+            string passwordParam = (string)arguments[4];  
+            string noteParam = (string)arguments[5];
 
             string currentToken = LoginComponent.GetToken();
 
@@ -26,6 +27,7 @@ namespace Backend.Components.Entry
             {
                 groupId = groupIdParam,
                 name = nameParam,
+                location = locationParam,
                 username = usernameParam,
                 password = passwordParam,
                 note = noteParam,
@@ -67,9 +69,10 @@ namespace Backend.Components.Entry
             {
                 id = Int32.Parse(arguments[0].ToString()),
                 name = (string)arguments[1],
-                username = (string)arguments[2],
-                password = (string)arguments[3],
-                note = (string)arguments[4],
+                location = (string)arguments[2],
+                username = (string)arguments[3],
+                password = (string)arguments[4],
+                note = (string)arguments[5],
                 token = currentToken
             };
             return CallWsFunction(WsFunctions.EditEntry, eeRequest, WsMethod.Put);

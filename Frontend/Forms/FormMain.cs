@@ -38,10 +38,8 @@ namespace Frontend.Forms
 
         private void FormMain_Load_1(object sender, EventArgs e)
         {
-            
             FormLoader.RaiseEndOfGetAlldata += EndOfGetAllDataHandler;
             CallAsyncOperation(null, new object[] { });
-           
         }
 
 
@@ -333,6 +331,7 @@ namespace Frontend.Forms
             frmEditEntry.EntryId = GetSelectedCellValue(dgvEntries, "entryId");
             frmEditEntry.GroupName = GetSelectedCellValue(dgvGroups, "GroupName");
             frmEditEntry.EntryName = GetSelectedCellValue(dgvEntries, "entryName");
+            frmEditEntry.EntryLocation = GetSelectedCellValue(dgvEntries, "EntryLocation");
             frmEditEntry.Username = GetSelectedCellValue(dgvEntries, "username");
             frmEditEntry.Password = GetSelectedCellValue(dgvEntries, "password");
             frmEditEntry.Note = GetSelectedCellValue(dgvEntries, "note");
@@ -399,6 +398,25 @@ namespace Frontend.Forms
         {
             var senderGrid = (DataGridView)sender;
 
+            #region Location's HyperLink
+
+
+            try
+            {
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewLinkColumn && e.RowIndex >= 0)
+
+                {
+                    string link = dgvEntries.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                    System.Diagnostics.Process.Start(link);
+                } 
+            }
+            catch
+            {
+                MessageBox.Show("Invalid address of the location");
+            }
+            #endregion
+            
+            #region Show Password Button
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
@@ -417,6 +435,8 @@ namespace Frontend.Forms
                     
                 }
             }
+            #endregion
+
         }
         private void CallBackDecryptPasswordFunction(GeneralResponse gr)
         {

@@ -52,6 +52,7 @@ namespace Frontend.Forms
             {
                 groupId,
                 tbName.Text,
+                tbLocation.Text,
                 tbUsername.Text,
                 tbPassword.Text,
                 tbNote.Text

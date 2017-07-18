@@ -26,6 +26,7 @@ namespace Frontend.Forms
         public string EntryId { get; set; }
         public string GroupName { get; set; }
         public string EntryName { get; set; }
+        public string EntryLocation { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Note { get; set; }
@@ -42,6 +43,7 @@ namespace Frontend.Forms
             tbEntryId.Text = EntryId.ToString();
             tbGroupName.Text = GroupName;
             tbEntryName.Text = EntryName;
+            tbLocation.Text = EntryLocation;
             tbEntryUsername.Text = Username;
             tbEntryPassword.Text = Password;
             tbEntryNote.Text = Note;
@@ -51,7 +53,7 @@ namespace Frontend.Forms
         {
 
             IEntriesCrud IEntriesCrud = Controller.GetComponent<IEntriesCrud>();
-            CallAsyncOperation(IEntriesCrud.EditEntry, new object[] { EntryId, tbEntryName.Text, tbEntryUsername.Text, tbEntryPassword.Text, tbEntryNote.Text});
+            CallAsyncOperation(IEntriesCrud.EditEntry, new object[] { EntryId, tbEntryName.Text, tbLocation.Text, tbEntryUsername.Text, tbEntryPassword.Text, tbEntryNote.Text});
             this.Close();
             
         }

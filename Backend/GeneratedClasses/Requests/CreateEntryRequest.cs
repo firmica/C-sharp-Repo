@@ -10,6 +10,7 @@ namespace Backend.GeneratedClasses.Requests
     {
         public int groupId;
         public string name;
+        public string location;
         public string username;
         public string password;
         public string note;
