@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45EBEC3C-1DBC-4346-B744-B63E7083B691}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Backend</RootNamespace>
+    <AssemblyName>Backend</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\BaseComponent.cs" />
+    <Compile Include="Components\CRUD\BaseCRUD.cs" />
+    <Compile Include="Components\CRUD\CreateEntry.cs" />
+    <Compile Include="Components\CRUD\DeleteEntry.cs" />
+    <Compile Include="Components\CRUD\GetEntry.cs" />
+    <Compile Include="Components\CRUD\ICreateEntry.cs" />
+    <Compile Include="Components\CRUD\IDeleteEntry.cs" />
+    <Compile Include="Components\CRUD\IGetEntry.cs" />
+    <Compile Include="Components\CRUD\UpdateEntry.cs" />
+    <Compile Include="Components\Entry\EntriesCrud.cs" />
+    <Compile Include="Components\Group\GroupsCrud.cs" />
+    <Compile Include="Components\Entry\IEntriesCrud.cs" />
+    <Compile Include="Components\Group\IGroupsCrud.cs" />
+    <Compile Include="Components\Login\ILoginComponent.cs" />
+    <Compile Include="Components\Login\LoginComponent.cs" />
+    <Compile Include="Core\Controller.cs" />
+    <Compile Include="Core\IController.cs" />
+    <Compile Include="Core\Loaders\ComponentLoader.cs" />
+    <Compile Include="Core\Loaders\IComponentLoader.cs" />
+    <Compile Include="Components\Encription\EncriptionComponent.cs" />
+    <Compile Include="GeneratedClasses\EntryTest.cs" />
+    <Compile Include="GeneratedClasses\GeneralResponse.cs" />
+    <Compile Include="GeneratedClasses\Requests\CreateEntryRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\CreateGroupRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\DecryptPasswordRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\DeleteEntryRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\DeleteGroupRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\EditEntryRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\EditGroupRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\LoginRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\ViewEntriesRequest.cs" />
+    <Compile Include="GeneratedClasses\Requests\ViewGroupRequest.cs" />
+    <Compile Include="GeneratedClasses\Responses\CreateGroupResponse.cs" />
+    <Compile Include="GeneratedClasses\Responses\DeleteGroupResponse.cs" />
+    <Compile Include="GeneratedClasses\Responses\LoginResponse.cs" />
+    <Compile Include="GeneratedClasses\Responses\ViewEntriesResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GeneratedClasses\Responses\ViewGroupResponse.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

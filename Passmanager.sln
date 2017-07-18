@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passmanager", "Passmanager\Passmanager.csproj", "{C1C529CC-1856-4B84-B54A-4E553958584C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "Frontend\Frontend.csproj", "{64DB27C7-FA17-49C6-83D2-1CF3BECE9DA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{45EBEC3C-1DBC-4346-B744-B63E7083B691}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1C529CC-1856-4B84-B54A-4E553958584C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1C529CC-1856-4B84-B54A-4E553958584C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1C529CC-1856-4B84-B54A-4E553958584C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1C529CC-1856-4B84-B54A-4E553958584C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64DB27C7-FA17-49C6-83D2-1CF3BECE9DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64DB27C7-FA17-49C6-83D2-1CF3BECE9DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64DB27C7-FA17-49C6-83D2-1CF3BECE9DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64DB27C7-FA17-49C6-83D2-1CF3BECE9DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45EBEC3C-1DBC-4346-B744-B63E7083B691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45EBEC3C-1DBC-4346-B744-B63E7083B691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45EBEC3C-1DBC-4346-B744-B63E7083B691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45EBEC3C-1DBC-4346-B744-B63E7083B691}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
