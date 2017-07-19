@@ -177,9 +177,9 @@
             this.lnlLocation.AutoSize = true;
             this.lnlLocation.Location = new System.Drawing.Point(29, 101);
             this.lnlLocation.Name = "lnlLocation";
-            this.lnlLocation.Size = new System.Drawing.Size(45, 13);
+            this.lnlLocation.Size = new System.Drawing.Size(51, 13);
             this.lnlLocation.TabIndex = 15;
-            this.lnlLocation.Text = "Loation:";
+            this.lnlLocation.Text = "Location:";
             // 
             // EditEntryForm
             // 

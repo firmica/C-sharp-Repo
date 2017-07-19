@@ -20,6 +20,9 @@ namespace Frontend.Forms
         private EditEntryForm frmEditEntry = null;
         private JArray arrayOfGroups = null;
         private JArray arrayOfEntries = null;
+        
+        private int dgvGroupIdSelected;
+
         public FormMain()
         {
             InitializeComponent();
@@ -32,13 +35,15 @@ namespace Frontend.Forms
 
         private void FormMain_Load_1(object sender, EventArgs e)
         {
+            
             FormLoader.RaiseEndOfGetAlldata += EndOfGetAllDataHandler;
+            FormLoader.RaiseEndOfLoading += EndOfOperationHandler;
             CallAsyncOperation(null, new object[] { });
         }
         
         private void btnCreateNewGroup_Click(object sender, EventArgs e)
         {
-           
+            dgvGroupIdSelected = dgvGroups.CurrentCell.RowIndex;
             if (frmCreateGroupForm == null)
             {
                 frmCreateGroupForm = new CreateGroupForm(Controller);
@@ -49,12 +54,19 @@ namespace Frontend.Forms
         }
 
         private void btnGetAll_Click(object sender, EventArgs e)
-        {     
+        {
+            dgvGroupIdSelected = 0;  
             CallAsyncOperation(null, new object[] { });
+            dgvGroups.ClearSelection();
+            dgvEntries.ClearSelection();
+            
         }
 
         public void EndOfOperationHandler(GeneralResponse gr)
         {
+            
+            if (dgvGroupIdSelected != 0)
+                dgvGroups.Rows[dgvGroupIdSelected].Selected = true;
             
         }
 
@@ -116,6 +128,11 @@ namespace Frontend.Forms
             btnEditEntry.Enabled = false;
         }
 
+        //private void backToGroupDataGridView()
+        //{
+        //    FillEntriesForSelectedGroup();
+        //}
+
         private void FillDataGridView(DataGridView dgvName, JArray jarray, ArrayType type, bool allGroups, int itemId)
         {
             if (allGroups)
@@ -165,7 +182,8 @@ namespace Frontend.Forms
                 }
             }
 
-            dgvName.ClearSelection();  
+            dgvName.ClearSelection();
+          
         }
 
         public enum  ArrayType
@@ -188,6 +206,7 @@ namespace Frontend.Forms
 
         private void btnDeleteGroup_Click(object sender, EventArgs e)
         {
+            dgvGroupIdSelected = dgvGroups.CurrentCell.RowIndex;
             int rowIndex = dgvGroups.CurrentCell.RowIndex;
 
             string itemName = dgvGroups.Rows[rowIndex].Cells[1].Value.ToString();
@@ -221,6 +240,7 @@ namespace Frontend.Forms
 
         private void btnEditGroup_Click(object sender, EventArgs e)
         {
+            
             if (frmEditGroupForm == null)
             {
                 frmEditGroupForm = new EditGroupForm(Controller);
@@ -244,6 +264,9 @@ namespace Frontend.Forms
             }
             try
             {
+
+                dgvGroupIdSelected = dgvGroups.CurrentCell.RowIndex;
+                
                 string groupName = GetSelectedCellValue(dgvGroups, "GroupName");
                 string groupId = GetSelectedCellValue(dgvGroups, "groupId");
                 frmCreateEntry.GroupName = groupName;
@@ -275,6 +298,7 @@ namespace Frontend.Forms
 
         private void btn_DeleteEntry_Click_1(object sender, EventArgs e)
         {
+            dgvGroupIdSelected = dgvGroups.CurrentCell.RowIndex;
             string entryName = GetSelectedCellValue(dgvEntries, "entryName");
             DialogResult dr = MessageBox.Show("Are you sure you want to delete \"" + entryName + "\" entry?",
                 "Confirm",
@@ -301,6 +325,7 @@ namespace Frontend.Forms
 
         private void btnEditEntry_Click_1(object sender, EventArgs e)
         {
+            dgvGroupIdSelected = dgvGroups.CurrentCell.RowIndex;
             if (frmEditEntry == null)
             {
                 frmEditEntry = new EditEntryForm(Controller);
@@ -332,12 +357,24 @@ namespace Frontend.Forms
 
         private void FillEntriesForSelectedGroup()
         {
-            int rowIndex = dgvGroups.CurrentCell.RowIndex;
+            //int rowIndex = dgvGroups.CurrentCell.RowIndex;
+
+            int rowIndex = dgvGroups.SelectedCells[0].RowIndex;
             int itemid = (int)dgvGroups.Rows[rowIndex].Cells[0].Value;
-            dgvEntries.ClearSelection();
-            dgvEntries.Rows.Clear();
-            FillDataGridView(dgvEntries, arrayOfEntries, ArrayType.Entry, false, itemid);
+            if(itemid != 0)
+            {
+                dgvEntries.ClearSelection();
+                dgvEntries.Rows.Clear();
+                FillDataGridView(dgvEntries, arrayOfEntries, ArrayType.Entry, false, itemid);
+            }
         }
+        //private void FillEntriesForSelectedGroup(int itemid)
+        //{
+        //    itemid = this.ItemId;
+        //    dgvEntries.ClearSelection();
+        //    dgvEntries.Rows.Clear();
+        //    FillDataGridView(dgvEntries, arrayOfEntries, ArrayType.Entry, false, itemid);
+        //}
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -476,6 +513,24 @@ namespace Frontend.Forms
   
             input = textBox.Text;
             return result;
+        }
+
+        private void dgvGroups_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dgvGroupIdSelected != 0)
+            {
+                FillEntriesForSelectedGroup();
+                btnDeleteGroup.Enabled = true;
+                btnEditGroup.Enabled = true;
+                btnCreateNewEntry.Enabled = true;
+            }
+          
+        }
+
+        private void dgvEntries_SelectionChanged(object sender, EventArgs e)
+        {
+            //btn_DeleteEntry.Enabled = true;
+            //btnEditEntry.Enabled = true;
         }
     }
 }

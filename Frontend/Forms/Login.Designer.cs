@@ -51,6 +51,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(144, 20);
             this.tbUsername.TabIndex = 3;
+            this.tbUsername.Text = "admin";
             // 
             // tbPassword
             // 
@@ -59,6 +60,7 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(144, 20);
             this.tbPassword.TabIndex = 4;
+            this.tbPassword.Text = "12345";
             // 
             // lblUsername
             // 
@@ -89,6 +91,7 @@
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

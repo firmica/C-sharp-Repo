@@ -42,8 +42,6 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCreateNewEntry = new System.Windows.Forms.Button();
             this.dgvEntries = new System.Windows.Forms.DataGridView();
-            this.btn_DeleteEntry = new System.Windows.Forms.Button();
-            this.btnEditEntry = new System.Windows.Forms.Button();
             this.entryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupIdInEntries = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EntryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +50,8 @@
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_DeleteEntry = new System.Windows.Forms.Button();
+            this.btnEditEntry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroups)).BeginInit();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).BeginInit();
@@ -59,11 +59,17 @@
             // 
             // btnGetAllData
             // 
-            
+            this.btnGetAllData.Location = new System.Drawing.Point(0, 0);
+            this.btnGetAllData.Name = "btnGetAllData";
+            this.btnGetAllData.Size = new System.Drawing.Size(75, 23);
+            this.btnGetAllData.TabIndex = 0;
             // 
             // btnCreateGroup
             // 
-            
+            this.btnCreateGroup.Location = new System.Drawing.Point(0, 0);
+            this.btnCreateGroup.Name = "btnCreateGroup";
+            this.btnCreateGroup.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateGroup.TabIndex = 0;
             // 
             // btnEditGroup
             // 
@@ -105,6 +111,7 @@
             this.dgvGroups.Size = new System.Drawing.Size(196, 230);
             this.dgvGroups.TabIndex = 2;
             this.dgvGroups.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGroups_CellClick);
+            this.dgvGroups.SelectionChanged += new System.EventHandler(this.dgvGroups_SelectionChanged);
             this.dgvGroups.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvGroups_KeyUp);
             // 
             // GroupId
@@ -124,11 +131,11 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(827, 27);
+            this.btnRefresh.Location = new System.Drawing.Point(827, 25);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(64, 42);
             this.btnRefresh.TabIndex = 1;
-            this.btnRefresh.Text = "Refersh";
+            this.btnRefresh.Text = "Get All Data";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnGetAll_Click);
             // 
@@ -203,28 +210,7 @@
             this.dgvEntries.TabIndex = 7;
             this.dgvEntries.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntries_CellClick);
             this.dgvEntries.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntries_CellContentClick_1);
-            // 
-            // btn_DeleteEntry
-            // 
-            this.btn_DeleteEntry.Enabled = false;
-            this.btn_DeleteEntry.Location = new System.Drawing.Point(299, 25);
-            this.btn_DeleteEntry.Name = "btn_DeleteEntry";
-            this.btn_DeleteEntry.Size = new System.Drawing.Size(64, 42);
-            this.btn_DeleteEntry.TabIndex = 8;
-            this.btn_DeleteEntry.Text = "Delete Entry";
-            this.btn_DeleteEntry.UseVisualStyleBackColor = true;
-            this.btn_DeleteEntry.Click += new System.EventHandler(this.btn_DeleteEntry_Click_1);
-            // 
-            // btnEditEntry
-            // 
-            this.btnEditEntry.Enabled = false;
-            this.btnEditEntry.Location = new System.Drawing.Point(369, 25);
-            this.btnEditEntry.Name = "btnEditEntry";
-            this.btnEditEntry.Size = new System.Drawing.Size(64, 42);
-            this.btnEditEntry.TabIndex = 9;
-            this.btnEditEntry.Text = "Edit\r\nEntry";
-            this.btnEditEntry.UseVisualStyleBackColor = true;
-            this.btnEditEntry.Click += new System.EventHandler(this.btnEditEntry_Click_1);
+            this.dgvEntries.SelectionChanged += new System.EventHandler(this.dgvEntries_SelectionChanged);
             // 
             // entryId
             // 
@@ -286,6 +272,28 @@
             this.Note.Name = "Note";
             this.Note.ReadOnly = true;
             this.Note.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // btn_DeleteEntry
+            // 
+            this.btn_DeleteEntry.Enabled = false;
+            this.btn_DeleteEntry.Location = new System.Drawing.Point(299, 25);
+            this.btn_DeleteEntry.Name = "btn_DeleteEntry";
+            this.btn_DeleteEntry.Size = new System.Drawing.Size(64, 42);
+            this.btn_DeleteEntry.TabIndex = 8;
+            this.btn_DeleteEntry.Text = "Delete Entry";
+            this.btn_DeleteEntry.UseVisualStyleBackColor = true;
+            this.btn_DeleteEntry.Click += new System.EventHandler(this.btn_DeleteEntry_Click_1);
+            // 
+            // btnEditEntry
+            // 
+            this.btnEditEntry.Enabled = false;
+            this.btnEditEntry.Location = new System.Drawing.Point(369, 25);
+            this.btnEditEntry.Name = "btnEditEntry";
+            this.btnEditEntry.Size = new System.Drawing.Size(64, 42);
+            this.btnEditEntry.TabIndex = 9;
+            this.btnEditEntry.Text = "Edit\r\nEntry";
+            this.btnEditEntry.UseVisualStyleBackColor = true;
+            this.btnEditEntry.Click += new System.EventHandler(this.btnEditEntry_Click_1);
             // 
             // FormMain
             // 

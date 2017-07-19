@@ -34,7 +34,6 @@ namespace Frontend.Forms
             
             this.Close();
         }
-       
         
         private void CreateGroupForm_Load(object sender, EventArgs e)
         {
