@@ -59,23 +59,11 @@
             // 
             // btnGetAllData
             // 
-            this.btnGetAllData.Location = new System.Drawing.Point(575, 27);
-            this.btnGetAllData.Name = "btnGetAllData";
-            this.btnGetAllData.Size = new System.Drawing.Size(75, 48);
-            this.btnGetAllData.TabIndex = 5;
-            this.btnGetAllData.Text = "GetAllData";
-            this.btnGetAllData.UseVisualStyleBackColor = true;
-            this.btnGetAllData.Click += new System.EventHandler(this.btnGetAllData_Click);
+            
             // 
             // btnCreateGroup
             // 
-            this.btnCreateGroup.Location = new System.Drawing.Point(11, 27);
-            this.btnCreateGroup.Name = "btnCreateGroup";
-            this.btnCreateGroup.Size = new System.Drawing.Size(76, 48);
-            this.btnCreateGroup.TabIndex = 13;
-            this.btnCreateGroup.Text = "Create Group";
-            this.btnCreateGroup.UseVisualStyleBackColor = true;
-            this.btnCreateGroup.Click += new System.EventHandler(this.btnCreateGroup_Click);
+            
             // 
             // btnEditGroup
             // 

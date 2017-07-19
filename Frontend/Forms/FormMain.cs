@@ -1,11 +1,6 @@
 ﻿using Backend.Core;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,23 +35,7 @@ namespace Frontend.Forms
             FormLoader.RaiseEndOfGetAlldata += EndOfGetAllDataHandler;
             CallAsyncOperation(null, new object[] { });
         }
-
-
-
-      
-
-        private void btnGetAllData_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void btnCreateGroup_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
+        
         private void btnCreateNewGroup_Click(object sender, EventArgs e)
         {
            
