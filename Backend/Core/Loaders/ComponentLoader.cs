@@ -1,5 +1,4 @@
 ﻿using Backend.Components;
-using Backend.Components.CRUD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,19 +13,7 @@ namespace Backend.Core.Loaders
         public Dictionary<string, BaseComponent> LoadComponents()
         {
             Dictionary<string, BaseComponent> components = new Dictionary<string, BaseComponent>();
-
-            CreateEntry CreateEntryComponent = new CreateEntry();
-            CreateEntryComponent.Init();
-            components.Add(typeof(CreateEntry).Name, CreateEntryComponent);
-
-            GetEntry GetEntryComponent = new GetEntry();
-            GetEntryComponent.Init();
-            components.Add(typeof(GetEntry).Name, GetEntryComponent);
-
-            DeleteEntry DeleteEntryComponent = new DeleteEntry();
-            DeleteEntryComponent.Init();
-            components.Add(typeof(DeleteEntry).Name, DeleteEntryComponent);
-
+            
             GroupsCrud groupsCroudComponent = new GroupsCrud();
             groupsCroudComponent.Init();
             components.Add(typeof(GroupsCrud).Name, groupsCroudComponent);

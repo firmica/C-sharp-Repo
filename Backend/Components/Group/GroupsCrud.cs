@@ -28,12 +28,12 @@ namespace Backend.Components.Entry
 
             return gr;
         }
-        public GeneralResponse ViewAllGroups(object[] arguments)
-        {
-            ViewGroupResponse vgResponse = new ViewGroupResponse();     
+        //public GeneralResponse ViewAllGroups(object[] arguments)
+        //{
+        //    ViewGroupResponse vgResponse = new ViewGroupResponse();     
 
-            return CallWsFunction(WsFunctions.ViewAllGroups, vgResponse, WsMethod.Get);;
-        }
+        //    return CallWsFunction(WsFunctions.ViewAllGroups, vgResponse, WsMethod.Get);;
+        //}
 
         public GeneralResponse DeleteGroup(object[] arguments)
         {
