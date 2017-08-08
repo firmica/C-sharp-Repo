@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Backend.GeneratedClasses;
 using Backend.GeneratedClasses.Requests;
-using Backend.GeneratedClasses.Responses;
 
 namespace Backend.Components.Entry
 {
