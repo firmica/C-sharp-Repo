@@ -50,7 +50,7 @@
             this.tbUsername.Location = new System.Drawing.Point(107, 98);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(144, 20);
-            this.tbUsername.TabIndex = 3;
+            this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
@@ -58,7 +58,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(144, 20);
-            this.tbPassword.TabIndex = 4;
+            this.tbPassword.TabIndex = 1;
             // 
             // lblUsername
             // 
@@ -66,7 +66,7 @@
             this.lblUsername.Location = new System.Drawing.Point(46, 101);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(58, 13);
-            this.lblUsername.TabIndex = 5;
+            this.lblUsername.TabIndex = 3;
             this.lblUsername.Text = "Username:";
             // 
             // lblPassword
@@ -75,7 +75,7 @@
             this.lblPassword.Location = new System.Drawing.Point(48, 127);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
-            this.lblPassword.TabIndex = 6;
+            this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
             // Login

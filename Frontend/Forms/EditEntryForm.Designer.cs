@@ -74,14 +74,14 @@
             this.tbEntryUsername.Location = new System.Drawing.Point(80, 120);
             this.tbEntryUsername.Name = "tbEntryUsername";
             this.tbEntryUsername.Size = new System.Drawing.Size(191, 20);
-            this.tbEntryUsername.TabIndex = 3;
+            this.tbEntryUsername.TabIndex = 4;
             // 
             // tbEntryPassword
             // 
             this.tbEntryPassword.Location = new System.Drawing.Point(80, 146);
             this.tbEntryPassword.Name = "tbEntryPassword";
             this.tbEntryPassword.Size = new System.Drawing.Size(191, 20);
-            this.tbEntryPassword.TabIndex = 4;
+            this.tbEntryPassword.TabIndex = 5;
             // 
             // tbEntryNote
             // 
@@ -89,7 +89,7 @@
             this.tbEntryNote.Multiline = true;
             this.tbEntryNote.Name = "tbEntryNote";
             this.tbEntryNote.Size = new System.Drawing.Size(191, 88);
-            this.tbEntryNote.TabIndex = 5;
+            this.tbEntryNote.TabIndex = 6;
             // 
             // lblEntryId
             // 
@@ -97,7 +97,7 @@
             this.lblEntryId.Location = new System.Drawing.Point(29, 21);
             this.lblEntryId.Name = "lblEntryId";
             this.lblEntryId.Size = new System.Drawing.Size(45, 13);
-            this.lblEntryId.TabIndex = 6;
+            this.lblEntryId.TabIndex = 9;
             this.lblEntryId.Text = "Entry id:";
             // 
             // lblGroupName
@@ -106,7 +106,7 @@
             this.lblGroupName.Location = new System.Drawing.Point(6, 50);
             this.lblGroupName.Name = "lblGroupName";
             this.lblGroupName.Size = new System.Drawing.Size(68, 13);
-            this.lblGroupName.TabIndex = 7;
+            this.lblGroupName.TabIndex = 10;
             this.lblGroupName.Text = "Group name:";
             // 
             // lblEntryName
@@ -115,7 +115,7 @@
             this.lblEntryName.Location = new System.Drawing.Point(36, 72);
             this.lblEntryName.Name = "lblEntryName";
             this.lblEntryName.Size = new System.Drawing.Size(38, 13);
-            this.lblEntryName.TabIndex = 8;
+            this.lblEntryName.TabIndex = 11;
             this.lblEntryName.Text = "Name:";
             // 
             // lblEntryUsername
@@ -124,7 +124,7 @@
             this.lblEntryUsername.Location = new System.Drawing.Point(16, 127);
             this.lblEntryUsername.Name = "lblEntryUsername";
             this.lblEntryUsername.Size = new System.Drawing.Size(58, 13);
-            this.lblEntryUsername.TabIndex = 9;
+            this.lblEntryUsername.TabIndex = 13;
             this.lblEntryUsername.Text = "Username:";
             // 
             // lblEntryPassword
@@ -133,7 +133,7 @@
             this.lblEntryPassword.Location = new System.Drawing.Point(18, 153);
             this.lblEntryPassword.Name = "lblEntryPassword";
             this.lblEntryPassword.Size = new System.Drawing.Size(56, 13);
-            this.lblEntryPassword.TabIndex = 10;
+            this.lblEntryPassword.TabIndex = 14;
             this.lblEntryPassword.Text = "Password:";
             // 
             // lblEntryNote
@@ -142,7 +142,7 @@
             this.lblEntryNote.Location = new System.Drawing.Point(41, 175);
             this.lblEntryNote.Name = "lblEntryNote";
             this.lblEntryNote.Size = new System.Drawing.Size(33, 13);
-            this.lblEntryNote.TabIndex = 11;
+            this.lblEntryNote.TabIndex = 15;
             this.lblEntryNote.Text = "Note:";
             // 
             // btnsubmit
@@ -150,7 +150,7 @@
             this.btnsubmit.Location = new System.Drawing.Point(287, 204);
             this.btnsubmit.Name = "btnsubmit";
             this.btnsubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnsubmit.TabIndex = 12;
+            this.btnsubmit.TabIndex = 7;
             this.btnsubmit.Text = "Submit";
             this.btnsubmit.UseVisualStyleBackColor = true;
             this.btnsubmit.Click += new System.EventHandler(this.btnsubmit_Click);
@@ -160,7 +160,7 @@
             this.btnCancel.Location = new System.Drawing.Point(287, 233);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -170,7 +170,7 @@
             this.tbLocation.Location = new System.Drawing.Point(80, 94);
             this.tbLocation.Name = "tbLocation";
             this.tbLocation.Size = new System.Drawing.Size(191, 20);
-            this.tbLocation.TabIndex = 14;
+            this.tbLocation.TabIndex = 3;
             // 
             // lnlLocation
             // 
@@ -178,7 +178,7 @@
             this.lnlLocation.Location = new System.Drawing.Point(29, 101);
             this.lnlLocation.Name = "lnlLocation";
             this.lnlLocation.Size = new System.Drawing.Size(45, 13);
-            this.lnlLocation.TabIndex = 15;
+            this.lnlLocation.TabIndex = 12;
             this.lnlLocation.Text = "Loation:";
             // 
             // EditEntryForm

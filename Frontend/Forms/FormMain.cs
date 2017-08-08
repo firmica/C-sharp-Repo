@@ -419,8 +419,6 @@ namespace Frontend.Forms
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                ViewPasswordForm frmPass = new ViewPasswordForm(Controller);
-                //frmPass.ShowDialog(this);
                 string entryId = GetSelectedCellValue(dgvEntries, "entryId");
                 IEntriesCrud entriesCrud = Controller.GetComponent<IEntriesCrud>();
                 
@@ -471,6 +469,7 @@ namespace Frontend.Forms
             textBox.Size = new System.Drawing.Size(size.Width - 10, 23);
             textBox.Location = new System.Drawing.Point(5, 5);
             textBox.Text = input;
+            textBox.PasswordChar = '*';
             inputBox.Controls.Add(textBox);
 
             Button okButton = new Button();

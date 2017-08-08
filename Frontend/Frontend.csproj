@@ -104,12 +104,6 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ViewPasswordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ViewPasswordForm.Designer.cs">
-      <DependentUpon>ViewPasswordForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
@@ -134,9 +128,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ViewPasswordForm.resx">
-      <DependentUpon>ViewPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
