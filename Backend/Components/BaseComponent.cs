@@ -107,6 +107,7 @@ namespace Backend.Components
                            client.Headers[HttpRequestHeader.ContentType] = "application/json";
 
                           result = client.UploadString(_url + functionName, methodName.ToUpper(), parametersString);
+                        
                        }
                    
                        try

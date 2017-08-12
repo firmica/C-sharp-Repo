@@ -362,6 +362,7 @@ namespace Frontend.Forms
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             Owner.Show();
             foreach (var tb in Owner.Controls.OfType<TextBox>())
             {

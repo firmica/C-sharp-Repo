@@ -99,6 +99,7 @@
             // 
             this.tbPassword.Location = new System.Drawing.Point(77, 115);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(190, 20);
             this.tbPassword.TabIndex = 4;
             // 
@@ -182,6 +183,7 @@
             this.Controls.Add(this.tbGroupName);
             this.Controls.Add(this.lblEntryName);
             this.Name = "CreateEntryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CreateEntryForm";
             this.Load += new System.EventHandler(this.CreateEntryForm_Load);
             this.ResumeLayout(false);

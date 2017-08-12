@@ -25,12 +25,12 @@ namespace Backend.Components
                 try
                 {
                     token = gr.Data["original"].ToString();
-               
                 }
                 catch (Exception)
                 {
                     gr.Success = false;
-                    gr.ErrorMessage = "Login failed, please check username and password!";
+                    //gr.ErrorMessage = ex.Message;    
+                    //gr.ErrorMessage = "Login failed, please check username and password!";
               
                 }
           
