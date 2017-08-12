@@ -30,18 +30,26 @@ namespace Frontend
         
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            ILoginComponent loginComponent = Controller.GetComponent<ILoginComponent>();
-            string username = tbUsername.Text;
-            string password = tbPassword.Text;
-            
-            try
-            {
-              CallAsyncOperation(loginComponent.Login, new object[] { username, password }, true, CallBackLoginFunction);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //if(tbUsername.Text == "" || tbPassword.Text == "")
+            //{
+            //    MessageBox.Show("Please provide username and password.");
+            //}
+            //else
+            //{
+                ILoginComponent loginComponent = Controller.GetComponent<ILoginComponent>();
+                string username = tbUsername.Text;
+                string password = tbPassword.Text;
+
+                try
+                {
+                    CallAsyncOperation(loginComponent.Login, new object[] { username, password }, true, CallBackLoginFunction);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            //}
+          
         }
         private void OpenMainForm()
         {

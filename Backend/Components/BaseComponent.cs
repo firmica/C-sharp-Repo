@@ -22,8 +22,6 @@ namespace Backend.Components
 
     public enum WsFunctions
     {
-        
-
         CreateGroup,
         ViewAllGroups,
         DeleteGroup,
@@ -33,6 +31,7 @@ namespace Backend.Components
         ViewAllGroupsAndEntries,
         DeleteEntry,
         EditEntry,
+
         Login,
         DecryptPassword
     }
@@ -59,59 +58,87 @@ namespace Backend.Components
 
             GeneralResponse gr = null;
 
-            if (string.IsNullOrWhiteSpace(methodName))
-                methodName = "GET";
+               if (string.IsNullOrWhiteSpace(methodName))
+                    methodName = "GET";
 
-           if (methodName.ToUpper() == "GET")
-           {
-                gr = new GeneralResponse();
+               if (methodName.ToUpper() == "GET")
+               {
+                    gr = new GeneralResponse();
 
-                try
-                {                   
-                    using (var client = new WebClient())
-                    {
-                        //client.QueryString.Add("username", "admin");
-                        //client.QueryString.Add("password", "12345");
-                        client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                        result = client.DownloadString(_url + functionNameString);
-                    }
-                   
                     try
-                    {
-                        gr.Data = JObject.Parse(result);
-                        gr.Success = true;
-                        gr.ErrorMessage = "";
+                    {                   
+                        using (var client = new WebClient())
+                        {
+                            client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                            result = client.DownloadString(_url + functionNameString);
+                        }
+                   
+                        try
+                        {
+                            gr.Data = JObject.Parse(result);
+                            gr.Success = true;
+                            gr.ErrorMessage = "";
+                        }
+                        catch (Exception exception)
+                        {
+                            gr.Success = false;
+                            gr.ErrorMessage = $"Error \"{exception}\" occured while converting response: {result}";
+                        }                  
                     }
                     catch (Exception exception)
                     {
                         gr.Success = false;
-                        gr.ErrorMessage = $"Error \"{exception}\" occured while converting response: {result}";
-                    }                  
-                }
-                catch (Exception exception)
-                {
-                    gr.Success = false;
-                    gr.ErrorMessage = exception.Message;
-                    gr.Data = null;
-                }
+                        gr.ErrorMessage = exception.Message;
+                        gr.Data = null;
+                    }
 
-                return gr;
-            }
+                    return gr;
+                }
            
 
-           if (methodName.ToUpper() == "POST")
-           {
-               string parametersString = JsonConvert.SerializeObject(parameters);
-               gr = new GeneralResponse();
-               try
+               if (methodName.ToUpper() == "POST")
                {
+                   string parametersString = JsonConvert.SerializeObject(parameters);
+                   gr = new GeneralResponse();
+                   try
+                   {
+                       using (var client = new WebClient())
+                       {
+                           client.Headers[HttpRequestHeader.ContentType] = "application/json";
+
+                          result = client.UploadString(_url + functionName, methodName.ToUpper(), parametersString);
+                        
+                       }
+                   
+                       try
+                       {
+                           gr = JsonConvert.DeserializeObject<GeneralResponse>(result);
+                       }
+                       catch (Exception exception)
+                       {
+                           gr.Success = false;
+                           gr.ErrorMessage = $"Error \"{exception}\" occured while converting response: {result}";
+                       }
+                   
+                   }
+                   catch (Exception exception)
+                   {
+                       gr.Success = false;
+                       gr.ErrorMessage = exception.Message;
+                   }
+                   return gr;
+               }
+
+               else if (methodName.ToUpper() == "DELETE")
+               {
+               gr = new GeneralResponse();
+               string parametersString = JsonConvert.SerializeObject(parameters); 
+               
                    using (var client = new WebClient())
                    {
                        client.Headers[HttpRequestHeader.ContentType] = "application/json";
-
-                      result = client.UploadString(_url + functionName, methodName.ToUpper(), parametersString);
+                       result = client.UploadString(_url + functionName, methodName.ToUpper(), parametersString);
                    }
-                   //gr = new GeneralResponse();
 
                    try
                    {
@@ -122,62 +149,33 @@ namespace Backend.Components
                        gr.Success = false;
                        gr.ErrorMessage = $"Error \"{exception}\" occured while converting response: {result}";
                    }
-                   
-               }
-               catch (Exception exception)
-               {
-                   gr.Success = false;
-                   gr.ErrorMessage = exception.Message;
-               }
-               return gr;
-           }
-           else if (methodName.ToUpper() == "DELETE")
-           {
-           gr = new GeneralResponse();
-           string parametersString = JsonConvert.SerializeObject(parameters); 
-               
-               using (var client = new WebClient())
-               {
-                   client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                   result = client.UploadString(_url + functionName, methodName.ToUpper(), parametersString);
-               
-
-               }
-
-               try
-               {
-                   gr = JsonConvert.DeserializeObject<GeneralResponse>(result);
-               }
-               catch (Exception exception)
-               {
-                   gr.Success = false;
-                   gr.ErrorMessage = $"Error \"{exception}\" occured while converting response: {result}";
-               }
-               return gr;
-           }
-           else if (methodName.ToUpper() == "PUT")
-           {
-               gr = new GeneralResponse();
-           string parametersString = JsonConvert.SerializeObject(parameters);
-               using (var client = new WebClient())
-               {
-                   client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                   result = client.UploadString(_url + functionName, methodName.ToUpper(), parametersString);
-               }
-               try
-               {
-                   gr = JsonConvert.DeserializeObject<GeneralResponse>(result);
-               }
-               catch (Exception exception)
-               {
-                   gr.Success = false;
-                   gr.ErrorMessage = $"Error \"{exception}\" occured while converting response: {result}";
-               }
-           return gr;
-           }
-           else
-               {
                    return gr;
+               }
+
+               else if (methodName.ToUpper() == "PUT")
+               {
+                       gr = new GeneralResponse();
+                       string parametersString = JsonConvert.SerializeObject(parameters);
+                       using (var client = new WebClient())
+                       {
+                           client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                           result = client.UploadString(_url + functionName, methodName.ToUpper(), parametersString);
+                       }
+                       try
+                       {
+                           gr = JsonConvert.DeserializeObject<GeneralResponse>(result);
+                       }
+                       catch (Exception exception)
+                       {
+                           gr.Success = false;
+                           gr.ErrorMessage = $"Error \"{exception}\" occured while converting response: {result}";
+                       }
+                       return gr;
+                       }
+
+               else
+               {
+                  return gr;
                }
            
            
