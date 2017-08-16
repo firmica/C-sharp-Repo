@@ -38,12 +38,8 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnCreateNewGroup = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.sessionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCreateNewEntry = new System.Windows.Forms.Button();
             this.dgvEntries = new System.Windows.Forms.DataGridView();
-            this.btn_DeleteEntry = new System.Windows.Forms.Button();
-            this.btnEditEntry = new System.Windows.Forms.Button();
             this.entryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupIdInEntries = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EntryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,8 +48,9 @@
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_DeleteEntry = new System.Windows.Forms.Button();
+            this.btnEditEntry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroups)).BeginInit();
-            this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,28 +153,11 @@
             // 
             // menuStrip2
             // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sessionToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(903, 24);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
-            // 
-            // sessionToolStripMenuItem1
-            // 
-            this.sessionToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logoutToolStripMenuItem});
-            this.sessionToolStripMenuItem1.Name = "sessionToolStripMenuItem1";
-            this.sessionToolStripMenuItem1.Size = new System.Drawing.Size(58, 20);
-            this.sessionToolStripMenuItem1.Text = "Session";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // btnCreateNewEntry
             // 
@@ -215,28 +195,6 @@
             this.dgvEntries.TabIndex = 7;
             this.dgvEntries.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntries_CellClick);
             this.dgvEntries.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntries_CellContentClick_1);
-            // 
-            // btn_DeleteEntry
-            // 
-            this.btn_DeleteEntry.Enabled = false;
-            this.btn_DeleteEntry.Location = new System.Drawing.Point(299, 25);
-            this.btn_DeleteEntry.Name = "btn_DeleteEntry";
-            this.btn_DeleteEntry.Size = new System.Drawing.Size(64, 42);
-            this.btn_DeleteEntry.TabIndex = 8;
-            this.btn_DeleteEntry.Text = "Delete Entry";
-            this.btn_DeleteEntry.UseVisualStyleBackColor = true;
-            this.btn_DeleteEntry.Click += new System.EventHandler(this.btn_DeleteEntry_Click_1);
-            // 
-            // btnEditEntry
-            // 
-            this.btnEditEntry.Enabled = false;
-            this.btnEditEntry.Location = new System.Drawing.Point(369, 25);
-            this.btnEditEntry.Name = "btnEditEntry";
-            this.btnEditEntry.Size = new System.Drawing.Size(64, 42);
-            this.btnEditEntry.TabIndex = 9;
-            this.btnEditEntry.Text = "Edit\r\nEntry";
-            this.btnEditEntry.UseVisualStyleBackColor = true;
-            this.btnEditEntry.Click += new System.EventHandler(this.btnEditEntry_Click_1);
             // 
             // entryId
             // 
@@ -299,6 +257,28 @@
             this.Note.ReadOnly = true;
             this.Note.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // btn_DeleteEntry
+            // 
+            this.btn_DeleteEntry.Enabled = false;
+            this.btn_DeleteEntry.Location = new System.Drawing.Point(299, 25);
+            this.btn_DeleteEntry.Name = "btn_DeleteEntry";
+            this.btn_DeleteEntry.Size = new System.Drawing.Size(64, 42);
+            this.btn_DeleteEntry.TabIndex = 8;
+            this.btn_DeleteEntry.Text = "Delete Entry";
+            this.btn_DeleteEntry.UseVisualStyleBackColor = true;
+            this.btn_DeleteEntry.Click += new System.EventHandler(this.btn_DeleteEntry_Click_1);
+            // 
+            // btnEditEntry
+            // 
+            this.btnEditEntry.Enabled = false;
+            this.btnEditEntry.Location = new System.Drawing.Point(369, 25);
+            this.btnEditEntry.Name = "btnEditEntry";
+            this.btnEditEntry.Size = new System.Drawing.Size(64, 42);
+            this.btnEditEntry.TabIndex = 9;
+            this.btnEditEntry.Text = "Edit\r\nEntry";
+            this.btnEditEntry.UseVisualStyleBackColor = true;
+            this.btnEditEntry.Click += new System.EventHandler(this.btnEditEntry_Click_1);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,8 +302,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing_1);
             this.Load += new System.EventHandler(this.FormMain_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroups)).EndInit();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -342,7 +320,6 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridView dgvGroups;
         private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem sessionToolStripMenuItem1;
         private System.Windows.Forms.Button btnDeleteGroup;
         private System.Windows.Forms.Button btnEditGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupId;
@@ -351,7 +328,6 @@
         private System.Windows.Forms.DataGridView dgvEntries;
         private System.Windows.Forms.Button btn_DeleteEntry;
         private System.Windows.Forms.Button btnEditEntry;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupIdInEntries;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryName;

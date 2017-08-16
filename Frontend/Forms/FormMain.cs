@@ -101,9 +101,17 @@ namespace Frontend.Forms
                 //var parsed = JObject.Parse(gr.Data.ToString());
                 //var val = (JValue)parsed["data"];
                 //var arrayOfGroups = JArray.Parse(val.ToString(CultureInfo.InvariantCulture));
-                
+                //if(gr.Data == null)
+                //{
+                //    throw new Exception();
+                //}
+               
                 var jObject = JObject.Parse(gr.Data.ToString());
                 IDictionary<string, JToken> json = jObject;
+                if(json["data"] == null)
+                {
+                    return;
+                }
                 var Jdata = json["data"];
 
                 var jObjectData = JObject.Parse(Jdata.ToString());
@@ -363,12 +371,7 @@ namespace Frontend.Forms
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
-            Owner.Show();
-            foreach (var tb in Owner.Controls.OfType<TextBox>())
-            {
-                tb.Text = "";
-            }
-            this.Hide();
+           
         }
         #region FormClosing red X => app.exit()
         private const int SC_CLOSE = 61536;
@@ -438,17 +441,19 @@ namespace Frontend.Forms
         }
         private void CallBackDecryptPasswordFunction(GeneralResponse gr)
         {
-            string password = gr.Data["original"].ToString();
-            try
+            if (gr.Data != null)
             {
-                if (MessageBox.Show("your password is: " + password + Environment.NewLine + "Would you like to copy your password to clipboard?", "Password", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                { Clipboard.SetText(password); }
+                string password = gr.Data["original"].ToString();
+                try
+                {
+                    if (MessageBox.Show("your password is: " + password + Environment.NewLine + "Would you like to copy your password to clipboard?", "Password", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    { Clipboard.SetText(password); }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
         private DialogResult ShowInputDialog(ref string input)
         {
@@ -497,6 +502,11 @@ namespace Frontend.Forms
   
             input = textBox.Text;
             return result;
+        }
+
+        private void sessionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,9 +45,7 @@ namespace Frontend.Forms
         {
             if (InvokeRequired)
             {
-
                 Invoke(new EndOfOperationDelegate(CloseThisForm), gr, functionToExecuteCalled, refreshGui);
-
             }
             else
             {
@@ -81,7 +79,8 @@ namespace Frontend.Forms
         }
 
         private void FromLoader_Load(object sender, EventArgs e)
-        {            
+        {
+            this.ControlBox = false;
         }
     }
 }
