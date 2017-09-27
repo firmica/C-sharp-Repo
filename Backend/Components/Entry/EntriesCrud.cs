@@ -12,12 +12,18 @@ namespace Backend.Components.Entry
     {
         public GeneralResponse CreateEntry(object[] arguments)
         {
-            int groupIdParam = Int32.Parse(arguments[0].ToString());
-            string nameParam = (string)arguments[1];
-            string locationParam = (string)arguments[2];
-            string usernameParam = (string) arguments[3];
-            string passwordParam = (string)arguments[4];  
-            string noteParam = (string)arguments[5];
+            int groupIdParam;
+            bool result = Int32.TryParse (arguments[0].ToString(), out groupIdParam);
+            if(!result)
+            {
+                throw new Exception("Cannot parse value for Group id parameter, it must be an integer");
+            }
+
+            string nameParam = arguments[1].ToString();
+            string locationParam = arguments[2].ToString();
+            string usernameParam = arguments[3].ToString();
+            string passwordParam = arguments[4].ToString();  
+            string noteParam = arguments[5].ToString();
 
             string currentToken = LoginComponent.GetToken();
 
@@ -45,8 +51,12 @@ namespace Backend.Components.Entry
 
         public GeneralResponse DeleteEntry(object[] arguments)
         {
-            int idParam = int.Parse(arguments[0].ToString());
-
+            int idParam;
+            bool result = int.TryParse(arguments[0].ToString(), out idParam);
+            if (!result)
+            {
+                throw new Exception("Cannot parse value for Entry id parameter, it must be an integer");
+            }
             string currentToken = LoginComponent.GetToken();
 
             DeleteEntryRequest deRequest = new DeleteEntryRequest
@@ -60,17 +70,22 @@ namespace Backend.Components.Entry
 
         public GeneralResponse EditEntry(object[] arguments)
         {
-
+            
             string currentToken = LoginComponent.GetToken();
-
+            int idParam;
+            bool result = Int32.TryParse(arguments[0].ToString(), out idParam);
+            if (!result)
+            {
+                throw new Exception("Cannot parse value for Entry id parameter, it must be an integer"); 
+            }
             EditEntryRequest eeRequest = new EditEntryRequest
             {
-                id = Int32.Parse(arguments[0].ToString()),
-                name = (string)arguments[1],
-                location = (string)arguments[2],
-                username = (string)arguments[3],
-                password = (string)arguments[4],
-                note = (string)arguments[5],
+                id = idParam,
+                name = arguments[1].ToString(),
+                location = arguments[2].ToString(),
+                username = arguments[3].ToString(),
+                password = arguments[4].ToString(),
+                note = arguments[5].ToString(),
                 token = currentToken
             };
             return CallWsFunction(WsFunctions.EditEntry, eeRequest, WsMethod.Put);
@@ -79,8 +94,13 @@ namespace Backend.Components.Entry
         {
 
             string currentToken = LoginComponent.GetToken();
-            int idParam = Int32.Parse(arguments[0].ToString());
-            string masterPasswordParam = (string)arguments[1];
+            int idParam;
+            bool result = Int32.TryParse(arguments[0].ToString(), out idParam);
+            if (!result)
+            {
+                throw new Exception("Cannot parse value for id parameter, it must be an integer");
+            }
+            string masterPasswordParam = arguments[1].ToString();
 
             DecryptPasswordRequest DecryptPassReq = new DecryptPasswordRequest
             {
@@ -94,8 +114,7 @@ namespace Backend.Components.Entry
             {
                 throw new Exception("Wrong master");
             }
-            //return gr.Data["original"].ToString();
-            
+           
             return gr;
         }
     }

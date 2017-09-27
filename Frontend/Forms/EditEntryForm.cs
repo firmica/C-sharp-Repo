@@ -51,11 +51,9 @@ namespace Frontend.Forms
 
         private void btnsubmit_Click(object sender, EventArgs e)
         {
-
             IEntriesCrud IEntriesCrud = Controller.GetComponent<IEntriesCrud>();
-            CallAsyncOperation(IEntriesCrud.EditEntry, new object[] { EntryId, tbEntryName.Text, tbLocation.Text, tbEntryUsername.Text, tbEntryPassword.Text, tbEntryNote.Text});
+            CallAsyncOperation(IEntriesCrud.EditEntry, new object[] { EntryId, tbEntryName.Text, tbLocation.Text, tbEntryUsername.Text, tbEntryPassword.Text, tbEntryNote.Text });
             this.Close();
-            
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Backend.Components.Entry
         
         public GeneralResponse CreateGroup(object[] arguments)
         {
-            string groupName = (string) arguments[0];
+            string groupName = arguments[0].ToString();
             string currentToken = LoginComponent.GetToken();
             CreateGroupRequest cgr = new CreateGroupRequest()
             {
@@ -51,7 +51,7 @@ namespace Backend.Components.Entry
         public GeneralResponse EditGroup(object[] arguments)
         {
             int idParam = Int32.Parse(arguments[0].ToString());
-            string nameParam = (string) arguments[1];
+            string nameParam = arguments[1].ToString();
             string currentToken = LoginComponent.GetToken();
 
             EditGroupRequest egRequest = new EditGroupRequest()

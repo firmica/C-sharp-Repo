@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Backend.GeneratedClasses;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -104,7 +98,7 @@ namespace Backend.Components
                    {
                        using (var client = new WebClient())
                        {
-                           client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                          client.Headers[HttpRequestHeader.ContentType] = "application/json";
 
                           result = client.UploadString(_url + functionName, methodName.ToUpper(), parametersString);
                         

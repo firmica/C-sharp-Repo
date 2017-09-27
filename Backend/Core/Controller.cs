@@ -25,16 +25,16 @@ namespace Backend.Core
         {
             string componentName = typeof(T).Name;
 
-            if (componentName.StartsWith("I"))
-                componentName = componentName.Remove(0, 1);
+                if (componentName.StartsWith("I"))
+                    componentName = componentName.Remove(0, 1);
 
-            if (!_ComponentContainer.ContainsKey(componentName))
-                throw new Exception($"Component {componentName} does not exists.");
+                if (!_ComponentContainer.ContainsKey(componentName))
+                    throw new Exception($"Component {componentName} does not exists.");
 
             T componentInstance = _ComponentContainer[componentName] as T;
 
-            if (componentInstance == null)
-                throw new Exception("Component is of the wrong type.");
+                if (componentInstance == null)
+                    throw new Exception("Component is of the wrong type.");
 
 
             return componentInstance;
